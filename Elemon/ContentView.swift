@@ -21,7 +21,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     
-    @StateObject var elementVM = ElementViewModel()
+    @StateObject var enemyVM = EnemyViewModel()
     
 //    messageUI用変数、ViewModel作成時に削除
     @State var msgIndex: Int = 0
@@ -67,19 +67,20 @@ struct ContentView: View {
                     }
                     VStack{
                         HStack{
-                            Rectangle().opacity(0).frame(width: 270, height: 150).overlay {
-                                HStack{
-                                    VStack(alignment: .leading){
-                                        EnemyName(name: $elementVM.enemyStatusModel.name)
-                                        HitPoint(hitPoint: $elementVM.statusModel.hitPoint, nowHitPoint: $elementVM.enemyStatusModel.nowHitPoint)
-                                        Hunger(hungerPoint: $elementVM.enemyStatusModel.hunger, nowHungerPoint: $elementVM.statusModel.hunger)
-                                        Health(health: $elementVM.enemyStatusModel.Health)
-                                    }.padding()
-                                    Spacer()
-                                }
-                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
-                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
-                            ))
+//                            Rectangle().opacity(0).frame(width: 270, height: 150).overlay {
+//                                HStack{
+//                                    VStack(alignment: .leading){
+//                                        EnemyName(name: $elementVM.enemyStatusModel.name)
+//                                        HitPoint(hitPoint: $elementVM.statusModel.hitPoint, nowHitPoint: $elementVM.enemyStatusModel.nowHitPoint)
+//                                        Hunger(hungerPoint: $elementVM.enemyStatusModel.hunger, nowHungerPoint: $elementVM.statusModel.hunger)
+//                                        Health(health: $elementVM.enemyStatusModel.Health)
+//                                    }.padding()
+//                                    Spacer()
+//                                }
+//                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
+//                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
+//                            ))
+                            EasyStatus(enemyVM: enemyVM)
                             Spacer()
                         }.padding()
                         Spacer()

@@ -22,6 +22,7 @@
 		ED9192422BB4068E00D94C04 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192412BB4068E00D94C04 /* Message.swift */; };
 		ED9192452BB4081800D94C04 /* EnemyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192442BB4081800D94C04 /* EnemyViewModel.swift */; };
 		ED9192472BB4086100D94C04 /* EnemyStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */; };
+		ED9192492BB454BC00D94C04 /* EasyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192482BB454BC00D94C04 /* EasyStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		ED9192412BB4068E00D94C04 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ED9192442BB4081800D94C04 /* EnemyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyViewModel.swift; sourceTree = "<group>"; };
 		ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStatusModel.swift; sourceTree = "<group>"; };
+		ED9192482BB454BC00D94C04 /* EasyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				ED91923D2BB4064800D94C04 /* HitPoint.swift */,
 				ED91923F2BB4066600D94C04 /* Hunger.swift */,
 				ED9192412BB4068E00D94C04 /* Message.swift */,
+				ED9192482BB454BC00D94C04 /* EasyStatus.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				ED9192452BB4081800D94C04 /* EnemyViewModel.swift in Sources */,
 				ED91923A2BB4034800D94C04 /* EnemyName.swift in Sources */,
 				ED91923E2BB4064800D94C04 /* HitPoint.swift in Sources */,
+				ED9192492BB454BC00D94C04 /* EasyStatus.swift in Sources */,
 				ED9192472BB4086100D94C04 /* EnemyStatusModel.swift in Sources */,
 				ED9192112BB400E000D94C04 /* Item.swift in Sources */,
 				ED9192402BB4066600D94C04 /* Hunger.swift in Sources */,

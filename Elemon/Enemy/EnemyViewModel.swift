@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ElementViewModel: ObservableObject {
+class EnemyViewModel: ObservableObject {
     @Published var statusModel = StatusModel()
     @Published var enemyStatusModel = EnemyStatusModel()
 }
