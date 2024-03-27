@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct Health: View {
+    
+    @Binding var health: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Health: \(health)")
     }
+    
 }
 
-#Preview {
-    Health()
-}
