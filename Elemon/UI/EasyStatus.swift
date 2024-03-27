@@ -13,21 +13,22 @@ struct EasyStatus: View {
     
     @State var openStatus: Bool = false
     
-    var body: some View {                            Rectangle().opacity(0).frame(width: 270, height: openStatus ? 150 : 35).overlay {
+    var body: some View {                            Rectangle().opacity(0).frame(width: 270, height: openStatus ? 140 : 35).overlay {
                                         ZStack{
                                             if openStatus {
                                                 HStack{
                                                     VStack(alignment: .leading){
+                                                        Spacer()
                                                         EnemyName(name: $enemyVM.enemyStatusModel.name)
                                                         HitPoint(hitPoint: $enemyVM.statusModel.hitPoint, nowHitPoint: $enemyVM.enemyStatusModel.nowHitPoint)
                                                         Hunger(hungerPoint: $enemyVM.enemyStatusModel.hunger, nowHungerPoint: $enemyVM.statusModel.hunger)
                                                         Health(health: $enemyVM.enemyStatusModel.Health)
                                                     }.padding()
-                                                    Spacer()
+//                                                    Spacer()
                                                 }
                                             }
                                             Button(action: {
-                                                withAnimation(.linear){
+                                                withAnimation(Animation.linear(duration: 0.3)){
                                                     openStatus.toggle()
                                                 }
                                             }, label: {
@@ -35,7 +36,7 @@ struct EasyStatus: View {
                                                     HStack{
                                                         Text("ステータス").padding(.leading)
                                                         Spacer()
-                                                        Text("▽").padding(.trailing)
+                                                        Image(systemName: openStatus ? "circle.fill" : "circle").padding(.trailing)
                                                     }
                                                     Spacer()
                                                 }.padding(.top, 6).foregroundStyle(.mint)
