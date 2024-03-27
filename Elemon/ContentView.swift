@@ -38,12 +38,12 @@ struct ContentView: View {
                             }
                         }, label: {
                             VStack{
-                                Rectangle().opacity(0).frame(minWidth: 300).frame(width: geo.size.width - 50).overlay {
+                                Rectangle().opacity(0).frame(minWidth: 300).frame(width: geo.size.width).overlay {
                                     VStack{
                                         Spacer()
                                         Image("skin").resizable().aspectRatio(contentMode: .fit)
                                     }
-                                }
+                                }.ignoresSafeArea()
                             }
                         }).buttonStyle(MyPushButtonStyle()).disabled(msgIndex != 0)
                         VStack(){
