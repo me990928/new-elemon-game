@@ -15,6 +15,7 @@
 		ED9192202BB400EB00D94C04 /* ElemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91921F2BB400EB00D94C04 /* ElemonTests.swift */; };
 		ED91922A2BB400EB00D94C04 /* ElemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192292BB400EB00D94C04 /* ElemonUITests.swift */; };
 		ED91922C2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91922B2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift */; };
+		ED91923A2BB4034800D94C04 /* EnemyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192392BB4034800D94C04 /* EnemyName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		ED9192252BB400EB00D94C04 /* ElemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9192292BB400EB00D94C04 /* ElemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemonUITests.swift; sourceTree = "<group>"; };
 		ED91922B2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ED9192392BB4034800D94C04 /* EnemyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		ED91920B2BB400E000D94C04 /* Elemon */ = {
 			isa = PBXGroup;
 			children = (
+				ED9192382BB4032E00D94C04 /* UI */,
 				ED91920C2BB400E000D94C04 /* ElemonApp.swift */,
 				ED91920E2BB400E000D94C04 /* ContentView.swift */,
 				ED9192102BB400E000D94C04 /* Item.swift */,
@@ -128,6 +131,14 @@
 				ED91922B2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift */,
 			);
 			path = ElemonUITests;
+			sourceTree = "<group>";
+		};
+		ED9192382BB4032E00D94C04 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				ED9192392BB4034800D94C04 /* EnemyName.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED91920F2BB400E000D94C04 /* ContentView.swift in Sources */,
+				ED91923A2BB4034800D94C04 /* EnemyName.swift in Sources */,
 				ED9192112BB400E000D94C04 /* Item.swift in Sources */,
 				ED91920D2BB400E000D94C04 /* ElemonApp.swift in Sources */,
 			);
