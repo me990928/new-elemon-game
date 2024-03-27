@@ -38,7 +38,7 @@ struct ContentView: View {
                                 Rectangle().opacity(0).frame(minWidth: 300).frame(width: geo.size.width - 50).overlay {
                                     VStack{
                                         Spacer()
-                                        Image("char").resizable().aspectRatio(contentMode: .fit)
+                                        Image("skin").resizable().aspectRatio(contentMode: .fit)
                                     }
                                 }
                             }
