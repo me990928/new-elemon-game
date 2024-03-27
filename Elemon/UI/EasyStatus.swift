@@ -29,24 +29,26 @@ struct EasyStatus: View {
 //                                                    Spacer()
                     }
                 }
-                Button(action: {
-                    isButtonEnabled.toggle()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                VStack{
+                    Button(action: {
                         isButtonEnabled.toggle()
-                    }
-                    withAnimation(Animation.linear(duration: 0.3)){
-                        openStatus.toggle()
-                    }
-                }, label: {
-                    VStack{
-                        HStack{
-                            Text("Status").padding(.leading)
-                            Spacer()
-                            Image(systemName: openStatus ? "circle.fill" : "circle").padding(.trailing)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                            isButtonEnabled.toggle()
                         }
-                        Spacer()
-                    }.padding(.top, 6).foregroundStyle(.mint)
-                }).disabled(isButtonEnabled)
+                        withAnimation(Animation.linear(duration: 0.3)){
+                            openStatus.toggle()
+                        }
+                    }, label: {
+                        VStack{
+                            HStack{
+                                Text("Status").padding(.leading)
+                                Spacer()
+                                Image(systemName: openStatus ? "circle.fill" : "circle").padding(.trailing)
+                            }
+                            Spacer()
+                        }.padding(.top, 6).foregroundStyle(.mint)
+                    }).disabled(isButtonEnabled)
+                }
             }
         }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
             cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
