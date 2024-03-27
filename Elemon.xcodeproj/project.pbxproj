@@ -23,6 +23,7 @@
 		ED9192452BB4081800D94C04 /* EnemyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192442BB4081800D94C04 /* EnemyViewModel.swift */; };
 		ED9192472BB4086100D94C04 /* EnemyStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */; };
 		ED9192492BB454BC00D94C04 /* EasyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192482BB454BC00D94C04 /* EasyStatus.swift */; };
+		ED91924C2BB48C3500D94C04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = ED91924B2BB48C3500D94C04 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		ED9192442BB4081800D94C04 /* EnemyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyViewModel.swift; sourceTree = "<group>"; };
 		ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStatusModel.swift; sourceTree = "<group>"; };
 		ED9192482BB454BC00D94C04 /* EasyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyStatus.swift; sourceTree = "<group>"; };
+		ED91924B2BB48C3500D94C04 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		ED91920B2BB400E000D94C04 /* Elemon */ = {
 			isa = PBXGroup;
 			children = (
+				ED91924A2BB48C0D00D94C04 /* Systems */,
 				ED9192432BB407F000D94C04 /* Enemy */,
 				ED9192382BB4032E00D94C04 /* UI */,
 				ED91920C2BB400E000D94C04 /* ElemonApp.swift */,
@@ -168,6 +171,14 @@
 				ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */,
 			);
 			path = Enemy;
+			sourceTree = "<group>";
+		};
+		ED91924A2BB48C0D00D94C04 /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				ED91924B2BB48C3500D94C04 /* Localizable.xcstrings */,
+			);
+			path = Systems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,11 +262,12 @@
 			};
 			buildConfigurationList = ED9192042BB400E000D94C04 /* Build configuration list for PBXProject "Elemon" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = ED9192002BB400E000D94C04;
 			productRefGroup = ED91920A2BB400E000D94C04 /* Products */;
@@ -276,6 +288,7 @@
 			files = (
 				ED9192162BB400EB00D94C04 /* Preview Assets.xcassets in Resources */,
 				ED9192132BB400EB00D94C04 /* Assets.xcassets in Resources */,
+				ED91924C2BB48C3500D94C04 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

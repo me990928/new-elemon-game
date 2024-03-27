@@ -12,6 +12,9 @@ struct EnemyName: View {
     @Binding var name: String
     
     var body: some View {
-        Text("Name: \(name)")
+        HStack{
+            Text("L_Name")
+            Text(": \(name)")
+        }
     }
 }

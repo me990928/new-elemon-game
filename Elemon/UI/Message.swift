@@ -10,7 +10,7 @@ import UIKit
 
 struct MessageModel: Hashable {
     var index: Int
-    var text: String
+    var text: String // Localizable key
 }
 
 struct Message: View {

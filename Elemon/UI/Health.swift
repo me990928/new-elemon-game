@@ -14,7 +14,10 @@ struct Health: View {
     @Binding var health: String
     
     var body: some View {
-        Text("Health: \(health)")
+        HStack{
+            Text("L_Health")
+            Text(": \(health)")
+        }
     }
     
 }

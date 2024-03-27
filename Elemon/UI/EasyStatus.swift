@@ -41,7 +41,7 @@ struct EasyStatus: View {
                     }, label: {
                         VStack{
                             HStack{
-                                Text("Status").padding(.leading)
+                                Text("L_Status").padding(.leading)
                                 Spacer()
                                 Image(systemName: openStatus ? "circle.fill" : "circle").padding(.trailing)
                             }

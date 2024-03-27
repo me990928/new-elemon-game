@@ -11,6 +11,9 @@ struct Hunger: View {
     @Binding var hungerPoint: Double
     @Binding var nowHungerPoint: Double
     var body: some View {
-        Text("Hunger: \(nowHungerPoint) / \(hungerPoint)")
+        HStack{
+            Text("L_Hunger")
+            Text(": \(nowHungerPoint) / \(hungerPoint)")
+        }
     }
 }

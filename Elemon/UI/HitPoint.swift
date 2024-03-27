@@ -11,6 +11,9 @@ struct HitPoint: View {
     @Binding var hitPoint: Double
     @Binding var nowHitPoint: Double
     var body: some View {
-        Text("HP: \(nowHitPoint) / \(hitPoint)")
+        HStack{
+            Text("L_HP")
+            Text(": \(nowHitPoint) / \(hitPoint)")
+        }
     }
 }
