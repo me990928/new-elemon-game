@@ -22,7 +22,10 @@ struct ContentView: View {
     @Query private var items: [Item]
     
     @StateObject var elementVM = ElementViewModel()
+    
+//    messageUI用変数、ViewModel作成時に削除
     @State var msgIndex: Int = 0
+    @State var messageHeight: Int = 2
     
     var body: some View {
         GeometryReader{ geo in
@@ -30,7 +33,7 @@ struct ContentView: View {
                 ZStack{
                     ZStack{
                         Button(action: {
-                            withAnimation {
+                            withAnimation(Animation.linear(duration: 0.1)) {
                                 if msgIndex == 0 { msgIndex = 1 }
                             }
                         }, label: {
@@ -83,7 +86,7 @@ struct ContentView: View {
                     }
                     VStack{
                         Spacer()
-                        Message(msgIndex: $msgIndex).padding()
+                        Message(messageHeight: $messageHeight, msgIndex: $msgIndex).padding().transition(.opacity)
                         Spacer().frame(height: 100)
                     }
                 }
