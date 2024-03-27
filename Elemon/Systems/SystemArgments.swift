@@ -12,6 +12,10 @@ struct SystemArgmentsModel {
     // EasyStatus.swift
     var openStatus: Bool = false
     var isButtonEnabled: Bool = false
+    
+    // Message.swift
+    var msgIndex: Int = 0
+    var msgSafeFlag: Bool = false
 }
 
 class SystemArgmentsViewModel: ObservableObject {

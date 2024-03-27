@@ -15,12 +15,10 @@ struct MessageModel: Hashable {
 
 struct Message: View {
     
+    @ObservedObject var sysArgVM: SystemArgmentsViewModel
+    
     @State var boxHeight: CGFloat = 0
     
-    @Binding var msgSafeFlag: Bool
-    
-    @Binding var messageHeight: Int
-    @Binding var msgIndex: Int
     @State var messageData: [MessageModel] = [
         MessageModel(index: 1, text: "やあ！"),
         MessageModel(index: 1, text: "こんにちは。"),
@@ -32,7 +30,7 @@ struct Message: View {
     
     var body: some View {
         ZStack{
-            if msgIndex <= messageData[messageData.count - 1].index && msgIndex != 0 {
+            if sysArgVM.sysArgModel.msgIndex <= messageData[messageData.count - 1].index && sysArgVM.sysArgModel.msgIndex != 0 {
                 
                 VStack(spacing: 0){
                     HStack{
@@ -42,17 +40,17 @@ struct Message: View {
                     
                     Button(action: {
                         withAnimation(Animation.linear(duration: 0.1)) {
-                            if msgIndex != messageData[messageData.count - 1].index {
-                                msgIndex += 1
+                            if sysArgVM.sysArgModel.msgIndex != messageData[messageData.count - 1].index {
+                                sysArgVM.sysArgModel.msgIndex += 1
                             } else {
-                                msgIndex = 0
-                                msgSafeFlag = false
+                                sysArgVM.sysArgModel.msgIndex = 0
+                                sysArgVM.sysArgModel.msgSafeFlag = false
                             }
                         }
                     }, label: {
                             VStack{
                                 ForEach(messageData, id: \.self){ msg in
-                                    if msgIndex == msg.index {
+                                    if sysArgVM.sysArgModel.msgIndex == msg.index {
                                         HStack{
                                             Text(msg.text).padding(.horizontal)
                                             Spacer()
