@@ -20,6 +20,8 @@
 		ED91923E2BB4064800D94C04 /* HitPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91923D2BB4064800D94C04 /* HitPoint.swift */; };
 		ED9192402BB4066600D94C04 /* Hunger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91923F2BB4066600D94C04 /* Hunger.swift */; };
 		ED9192422BB4068E00D94C04 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192412BB4068E00D94C04 /* Message.swift */; };
+		ED9192452BB4081800D94C04 /* EnemyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192442BB4081800D94C04 /* EnemyViewModel.swift */; };
+		ED9192472BB4086100D94C04 /* EnemyStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		ED91923D2BB4064800D94C04 /* HitPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitPoint.swift; sourceTree = "<group>"; };
 		ED91923F2BB4066600D94C04 /* Hunger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hunger.swift; sourceTree = "<group>"; };
 		ED9192412BB4068E00D94C04 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		ED9192442BB4081800D94C04 /* EnemyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyViewModel.swift; sourceTree = "<group>"; };
+		ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStatusModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		ED91920B2BB400E000D94C04 /* Elemon */ = {
 			isa = PBXGroup;
 			children = (
+				ED9192432BB407F000D94C04 /* Enemy */,
 				ED9192382BB4032E00D94C04 /* UI */,
 				ED91920C2BB400E000D94C04 /* ElemonApp.swift */,
 				ED91920E2BB400E000D94C04 /* ContentView.swift */,
@@ -151,6 +156,15 @@
 				ED9192412BB4068E00D94C04 /* Message.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		ED9192432BB407F000D94C04 /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				ED9192442BB4081800D94C04 /* EnemyViewModel.swift */,
+				ED9192462BB4086100D94C04 /* EnemyStatusModel.swift */,
+			);
+			path = Enemy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,8 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED91920F2BB400E000D94C04 /* ContentView.swift in Sources */,
+				ED9192452BB4081800D94C04 /* EnemyViewModel.swift in Sources */,
 				ED91923A2BB4034800D94C04 /* EnemyName.swift in Sources */,
 				ED91923E2BB4064800D94C04 /* HitPoint.swift in Sources */,
+				ED9192472BB4086100D94C04 /* EnemyStatusModel.swift in Sources */,
 				ED9192112BB400E000D94C04 /* Item.swift in Sources */,
 				ED9192402BB4066600D94C04 /* Hunger.swift in Sources */,
 				ED9192422BB4068E00D94C04 /* Message.swift in Sources */,
