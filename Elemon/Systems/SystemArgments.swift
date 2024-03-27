@@ -6,10 +6,14 @@
 //
 
 import Foundation
-import SwiftUI
-import SwiftData
 
-@Model
-final class SystemArgments {
+struct SystemArgmentsModel {
     
+    // EasyStatus.swift
+    var openStatus: Bool = false
+    var isButtonEnabled: Bool = false
+}
+
+class SystemArgmentsViewModel: ObservableObject {
+    @Published var sysArgModel = SystemArgmentsModel()
 }

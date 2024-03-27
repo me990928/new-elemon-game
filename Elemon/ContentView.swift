@@ -22,6 +22,7 @@ struct ContentView: View {
     @Query private var items: [Item]
     
     @StateObject var enemyVM = EnemyViewModel()
+    @StateObject var sysArgVM = SystemArgmentsViewModel()
     
 //    messageUI用変数、ViewModel作成時に削除
     @State var msgIndex: Int = 0
@@ -85,7 +86,7 @@ struct ContentView: View {
 //                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
 //                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
 //                            ))
-                            EasyStatus(enemyVM: enemyVM).disabled(msgSafeFlag)
+                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM).disabled(msgSafeFlag)
                             Spacer()
                         }.padding()
                         Spacer()
