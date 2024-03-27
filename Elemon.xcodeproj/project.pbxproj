@@ -16,6 +16,10 @@
 		ED91922A2BB400EB00D94C04 /* ElemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192292BB400EB00D94C04 /* ElemonUITests.swift */; };
 		ED91922C2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91922B2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift */; };
 		ED91923A2BB4034800D94C04 /* EnemyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192392BB4034800D94C04 /* EnemyName.swift */; };
+		ED91923C2BB4060100D94C04 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91923B2BB4060100D94C04 /* Health.swift */; };
+		ED91923E2BB4064800D94C04 /* HitPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91923D2BB4064800D94C04 /* HitPoint.swift */; };
+		ED9192402BB4066600D94C04 /* Hunger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91923F2BB4066600D94C04 /* Hunger.swift */; };
+		ED9192422BB4068E00D94C04 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9192412BB4068E00D94C04 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		ED9192292BB400EB00D94C04 /* ElemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemonUITests.swift; sourceTree = "<group>"; };
 		ED91922B2BB400EB00D94C04 /* ElemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ED9192392BB4034800D94C04 /* EnemyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyName.swift; sourceTree = "<group>"; };
+		ED91923B2BB4060100D94C04 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
+		ED91923D2BB4064800D94C04 /* HitPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitPoint.swift; sourceTree = "<group>"; };
+		ED91923F2BB4066600D94C04 /* Hunger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hunger.swift; sourceTree = "<group>"; };
+		ED9192412BB4068E00D94C04 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				ED9192392BB4034800D94C04 /* EnemyName.swift */,
+				ED91923B2BB4060100D94C04 /* Health.swift */,
+				ED91923D2BB4064800D94C04 /* HitPoint.swift */,
+				ED91923F2BB4066600D94C04 /* Hunger.swift */,
+				ED9192412BB4068E00D94C04 /* Message.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -273,7 +285,11 @@
 			files = (
 				ED91920F2BB400E000D94C04 /* ContentView.swift in Sources */,
 				ED91923A2BB4034800D94C04 /* EnemyName.swift in Sources */,
+				ED91923E2BB4064800D94C04 /* HitPoint.swift in Sources */,
 				ED9192112BB400E000D94C04 /* Item.swift in Sources */,
+				ED9192402BB4066600D94C04 /* Hunger.swift in Sources */,
+				ED9192422BB4068E00D94C04 /* Message.swift in Sources */,
+				ED91923C2BB4060100D94C04 /* Health.swift in Sources */,
 				ED91920D2BB400E000D94C04 /* ElemonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
