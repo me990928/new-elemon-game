@@ -17,6 +17,23 @@
     "▽" : {
 
     },
+    "Enemy_Name_Test" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parker girl"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パーカー娘"
+          }
+        }
+      }
+    },
     "L_Health" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -28,13 +28,15 @@ struct Message: View {
         MessageModel(index: 2, text: " ")
     ]
     
+    @State var name = "Enemy_Name_Test"
+    
     var body: some View {
         ZStack{
             if msgIndex <= messageData[messageData.count - 1].index && msgIndex != 0 {
                 
                 VStack(spacing: 0){
                     HStack{
-                        Text("name").bold().font(.title2).padding([.top, .leading])
+                        Text(LocalizedStringKey(name)).bold().font(.title2).padding([.top, .leading])
                         Spacer()
                     }
                     
