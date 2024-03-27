@@ -8,52 +8,90 @@
 import SwiftUI
 import SwiftData
 
+import SwiftUI
+
+struct MyPushButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label.background(configuration.isPressed ? .clear : .clear)
+    }
+}
+
 struct ContentView: View {
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
-
+    
+    @StateObject var elementVM = ElementViewModel()
+    @State var msgIndex: Int = 0
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        GeometryReader{ geo in
+            VStack {
+                ZStack{
+                    ZStack{
+                        Button(action: {
+                            withAnimation {
+                                if msgIndex == 0 { msgIndex = 1 }
+                            }
+                        }, label: {
+                            VStack{
+                                Rectangle().opacity(0).frame(minWidth: 300).frame(width: geo.size.width - 50).overlay {
+                                    VStack{
+                                        Spacer()
+                                        Image("char").resizable().aspectRatio(contentMode: .fit)
+                                    }
+                                }
+                            }
+                        }).buttonStyle(MyPushButtonStyle()).disabled(msgIndex != 0)
+                        VStack(){
+                            Spacer()
+                                HStack{
+                                    Button(action: {}, label: {
+                                        Image(systemName: "fork.knife").font(.title)
+                                    }).padding()
+                                    Button(action: {}, label: {
+                                        Image(systemName: "stethoscope").font(.title)
+                                    }).padding()
+                                    Button(action: {}, label: {
+                                        Image(systemName: "bed.double").font(.title)
+                                    }).padding()
+                                    Button(action: {}, label: {
+                                        Image(systemName: "note.text").font(.title)
+                                    }).padding()
+                                }.frame(width: geo.size.width).background(Material.ultraThinMaterial)
+                                .foregroundStyle(Color.mint)
+                        }
+                    }
+                    VStack{
+                        HStack{
+                            Rectangle().opacity(0).frame(width: 270, height: 150).overlay {
+                                HStack{
+                                    VStack(alignment: .leading){
+                                        EnemyName(name: $elementVM.enemyStatusModel.name)
+                                        HitPoint(hitPoint: $elementVM.statusModel.hitPoint, nowHitPoint: $elementVM.enemyStatusModel.nowHitPoint)
+                                        Hunger(hungerPoint: $elementVM.enemyStatusModel.hunger, nowHungerPoint: $elementVM.statusModel.hunger)
+                                        Health(health: $elementVM.enemyStatusModel.Health)
+                                    }.padding()
+                                    Spacer()
+                                }
+                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
+                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
+                            ))
+                            Spacer()
+                        }.padding()
+                        Spacer()
+                    }
+                    VStack{
+                        Spacer()
+                        Message(msgIndex: $msgIndex).padding()
+                        Spacer().frame(height: 100)
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
             }
         }
     }
 }
+
 
 #Preview {
     ContentView()
