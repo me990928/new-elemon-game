@@ -17,6 +17,8 @@ struct Message: View {
     
     @State var boxHeight: CGFloat = 0
     
+    @Binding var msgSafeFlag: Bool
+    
     @Binding var messageHeight: Int
     @Binding var msgIndex: Int
     @State var messageData: [MessageModel] = [
@@ -27,45 +29,48 @@ struct Message: View {
     ]
     
     var body: some View {
-        if msgIndex <= messageData[messageData.count - 1].index && msgIndex != 0 {
-            
-            VStack(spacing: 0){
-                HStack{
-                    Text("name").bold().font(.title2).padding([.top, .leading])
-                    Spacer()
-                }
+        ZStack{
+            if msgIndex <= messageData[messageData.count - 1].index && msgIndex != 0 {
                 
-                Button(action: {
-                    withAnimation(Animation.linear(duration: 0.1)) {
-                        if msgIndex != messageData[messageData.count - 1].index {
-                            msgIndex += 1
-                        } else {
-                            msgIndex = 0
-                        }
+                VStack(spacing: 0){
+                    HStack{
+                        Text("name").bold().font(.title2).padding([.top, .leading])
+                        Spacer()
                     }
-                }, label: {
-                        VStack{
-                            ForEach(messageData, id: \.self){ msg in
-                                if msgIndex == msg.index {
-                                    HStack{
-                                        Text(msg.text).padding(.horizontal)
+                    
+                    Button(action: {
+                        withAnimation(Animation.linear(duration: 0.1)) {
+                            if msgIndex != messageData[messageData.count - 1].index {
+                                msgIndex += 1
+                            } else {
+                                msgIndex = 0
+                                msgSafeFlag = false
+                            }
+                        }
+                    }, label: {
+                            VStack{
+                                ForEach(messageData, id: \.self){ msg in
+                                    if msgIndex == msg.index {
+                                        HStack{
+                                            Text(msg.text).padding(.horizontal)
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                            }.padding(.vertical).foregroundStyle(Color(.label)).overlay {
+                                ZStack{
+                                    VStack{
                                         Spacer()
+                                        HStack{
+                                            Spacer()
+                                            Text("▽")
+                                        }.padding()
                                     }
                                 }
                             }
-                        }.padding(.vertical).foregroundStyle(Color(.label)).overlay {
-                            ZStack{
-                                VStack{
-                                    Spacer()
-                                    HStack{
-                                        Spacer()
-                                        Text("▽")
-                                    }.padding()
-                                }
-                            }
-                        }
-                })
-            }.frame(width: .infinity).background(Material.ultraThickMaterial).clipShape(.rect(cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)))
+                    })
+                }.frame(width: .infinity).background(Material.ultraThickMaterial).clipShape(.rect(cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)))
+            }
         }
     }
     

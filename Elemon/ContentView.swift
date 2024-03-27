@@ -27,12 +27,17 @@ struct ContentView: View {
     @State var msgIndex: Int = 0
     @State var messageHeight: Int = 2
     
+    // System Flag
+    // message Level Safety
+    @State var msgSafeFlag: Bool = false
+    
     var body: some View {
         GeometryReader{ geo in
             VStack {
                 ZStack{
                     ZStack{
                         Button(action: {
+                            msgSafeFlag = true
                             withAnimation(Animation.linear(duration: 0.1)) {
                                 if msgIndex == 0 { msgIndex = 1 }
                             }
@@ -63,7 +68,7 @@ struct ContentView: View {
                                     }).padding()
                                 }.frame(width: geo.size.width).background(Material.ultraThinMaterial)
                                 .foregroundStyle(Color.mint)
-                        }
+                        }.disabled(msgSafeFlag)
                     }
                     VStack{
                         HStack{
@@ -80,14 +85,15 @@ struct ContentView: View {
 //                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
 //                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
 //                            ))
-                            EasyStatus(enemyVM: enemyVM)
+                            EasyStatus(enemyVM: enemyVM).disabled(msgSafeFlag)
                             Spacer()
                         }.padding()
                         Spacer()
                     }
+                    
                     VStack{
                         Spacer()
-                        Message(messageHeight: $messageHeight, msgIndex: $msgIndex).padding().transition(.opacity)
+                        Message(msgSafeFlag: $msgSafeFlag, messageHeight: $messageHeight, msgIndex: $msgIndex).padding().transition(.opacity)
                         Spacer().frame(height: 100)
                     }
                 }
