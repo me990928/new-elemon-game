@@ -14,7 +14,8 @@ struct EnemyName: View {
     var body: some View {
         HStack{
             Text("L_Name")
-            Text(": \(name)")
+            Text(": ")
+            Text(LocalizedStringKey(name))
         }
     }
 }
