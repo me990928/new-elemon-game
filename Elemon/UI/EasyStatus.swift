@@ -12,6 +12,8 @@ struct EasyStatus: View {
     @ObservedObject var enemyVM: EnemyViewModel
     @ObservedObject var sysArgVM: SystemArgmentsViewModel
     
+    @ObservedObject var test: PlayerTestCharactor
+    
 //    @State var openStatus: Bool = false
 //    @State var isButtonEnabled: Bool = false
     
@@ -22,10 +24,14 @@ struct EasyStatus: View {
                     HStack{
                         VStack(alignment: .leading){
                             Spacer()
-                            EnemyName(name: $enemyVM.enemyStatusModel.name)
-                            HitPoint(hitPoint: $enemyVM.statusModel.hitPoint, nowHitPoint: $enemyVM.enemyStatusModel.nowHitPoint)
-                            Hunger(hungerPoint: $enemyVM.enemyStatusModel.hunger, nowHungerPoint: $enemyVM.statusModel.hunger)
-                            Health(health: $enemyVM.enemyStatusModel.Health)
+//                            EnemyName(name: $enemyVM.enemyStatusModel.name)
+//                            HitPoint(hitPoint: $enemyVM.statusModel.hitPoint, nowHitPoint: $enemyVM.enemyStatusModel.nowHitPoint)
+//                            Hunger(hungerPoint: $enemyVM.enemyStatusModel.hunger, nowHungerPoint: $enemyVM.statusModel.hunger)
+//                            Health(health: $enemyVM.enemyStatusModel.Health)
+                            EnemyName(name: $test.playerName)
+                            HitPoint(hitPoint: $test.playerHitpoint, nowHitPoint: $test.charData.hitpoint)
+                            Hunger(hungerPoint: $test.playerHunger, nowHungerPoint: $test.charData.hunger)
+                            Health(health: $test.playerHealth)
                         }.padding()
 //                                                    Spacer()
                     }

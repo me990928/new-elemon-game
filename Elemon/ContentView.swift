@@ -24,6 +24,8 @@ struct ContentView: View {
     @StateObject var enemyVM = EnemyViewModel()
     @StateObject var sysArgVM = SystemArgmentsViewModel()
     
+    @StateObject var test = PlayerTestCharactor()
+    
     // System Flag
     
     var body: some View {
@@ -80,7 +82,8 @@ struct ContentView: View {
 //                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
 //                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
 //                            ))
-                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM).disabled(sysArgVM.sysArgModel.msgSafeFlag)
+//                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM).disabled(sysArgVM.sysArgModel.msgSafeFlag)
+                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM, test: test).disabled(sysArgVM.sysArgModel.msgSafeFlag)
                             Spacer()
                         }.padding()
                         Spacer()
