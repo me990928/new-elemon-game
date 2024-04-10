@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HitPoint: View {
-    @Binding var hitPoint: Double
-    @Binding var nowHitPoint: Double
+    @State var hitPoint: Double
+    @State var nowHitPoint: Double
+    
     var body: some View {
         HStack{
             Text("L_HP")

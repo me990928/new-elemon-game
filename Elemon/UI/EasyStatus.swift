@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EasyStatus: View {
     
     @ObservedObject var enemyVM: EnemyViewModel
     @ObservedObject var sysArgVM: SystemArgmentsViewModel
     
-    @ObservedObject var test: PlayerTestCharactor
+    @Query private var charactor: [PlayerCharactorItem]
     
 //    @State var openStatus: Bool = false
 //    @State var isButtonEnabled: Bool = false
@@ -24,16 +25,13 @@ struct EasyStatus: View {
                     HStack{
                         VStack(alignment: .leading){
                             Spacer()
-//                            EnemyName(name: $enemyVM.enemyStatusModel.name)
-//                            HitPoint(hitPoint: $enemyVM.statusModel.hitPoint, nowHitPoint: $enemyVM.enemyStatusModel.nowHitPoint)
-//                            Hunger(hungerPoint: $enemyVM.enemyStatusModel.hunger, nowHungerPoint: $enemyVM.statusModel.hunger)
-//                            Health(health: $enemyVM.enemyStatusModel.Health)
-                            EnemyName(name: $test.playerName)
-                            HitPoint(hitPoint: $test.playerHitpoint, nowHitPoint: $test.charData.hitpoint)
-                            Hunger(hungerPoint: $test.playerHunger, nowHungerPoint: $test.charData.hunger)
-                            Health(health: $test.playerHealth)
+                            if let charactor = charactor.first {
+                                EnemyName(name: charactor.playerName)
+                                HitPoint(hitPoint: enemyVM.statusModel.hitPoint, nowHitPoint: charactor.playerHitpoint)
+                                Hunger(hungerPoint: enemyVM.statusModel.hunger, nowHungerPoint: charactor.playerHunger)
+                                Health(health: charactor.playerHealth)
+                            }
                         }.padding()
-//                                                    Spacer()
                     }
                 }
                 VStack{
@@ -65,4 +63,5 @@ struct EasyStatus: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: [Item.self, PlayerCharactorItem.self], inMemory: true)
 }

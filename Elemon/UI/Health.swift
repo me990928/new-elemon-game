@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct Health: View {
     
-    @Binding var health: String
+    @State var health: String
     
     var body: some View {
         HStack{

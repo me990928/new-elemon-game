@@ -9,12 +9,12 @@ import SwiftUI
 
 struct EnemyName: View {
     
-    @Binding var name: String
+    @State var name: String
     
     var body: some View {
         HStack{
             Text("L_Name")
-            Text(": ")
+            Text(":")
             Text(LocalizedStringKey(name))
         }
     }

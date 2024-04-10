@@ -6,10 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Hunger: View {
-    @Binding var hungerPoint: Double
-    @Binding var nowHungerPoint: Double
+    
+    @State var hungerPoint: Double
+    
+//    @Query private var charactor: [PlayerCharactorItem]
+    @State var nowHungerPoint: Double
+    
+//    var body: some View {
+//        HStack{
+//            Text("L_Hunger")
+//            if let nowHungerPoint = charactor.first?.playerHunger {
+//                Text(": \(nowHungerPoint) / \(hungerPoint)")
+//            }
+//        }
+//    }
     var body: some View {
         HStack{
             Text("L_Hunger")
