@@ -32,3 +32,20 @@ struct TestCharctor: GameCharactor {
     var comments: Test001 = Test001()
     
 }
+
+class CharacterRepository: ObservableObject {
+    
+    @Published var selectedCharData: TestCharctor = TestCharctor()
+    
+    var models = [
+        TestCharctor()
+    ]
+    
+    func setGameCharactorData(charData: String){
+        for model in models {
+            if model.charData == charData {
+                selectedCharData = model
+            }
+        }
+    }
+}
