@@ -39,5 +39,5 @@ struct Test001: ComentsMaster {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: [Item.self, PlayerCharactorItem.self], inMemory: true)
 }

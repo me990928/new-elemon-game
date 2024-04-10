@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct ElemonApp: App {
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
