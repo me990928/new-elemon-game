@@ -9,6 +9,7 @@ import Foundation
 
 // キャラの基礎データ
 protocol GameCharactor {
+    var charData: String { get set }
     var charName: String { get set }
     var hitpoint: Double { get set }
     var hunger: Double { get set }
@@ -17,6 +18,9 @@ protocol GameCharactor {
 
 // キャラクラス DEMO
 struct TestCharctor: GameCharactor {
+    
+    var charData: String = "Parker-girl"
+    
     var charName: String = "パーカー娘"
     
     var hitpoint: Double = 1000
@@ -26,4 +30,5 @@ struct TestCharctor: GameCharactor {
     var health: String = "健康"
     
     var comments: Test001 = Test001()
+    
 }
