@@ -18,13 +18,19 @@ struct MyPushButtonStyle: ButtonStyle {
 
 struct ContentView: View {
     
+    @AppStorage ("firstUp") var firstUp: Bool = true
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @Query private var charactor: [PlayerCharactorItem]
     
     @StateObject var enemyVM = EnemyViewModel()
     @StateObject var sysArgVM = SystemArgmentsViewModel()
+    @StateObject var charRepo = CharacterRepository()
     
-    @StateObject var test = PlayerTestCharactor()
+//    @StateObject var test = PlayerTestCharactor()
+    
+    let firstChar = PlayerCharactorItem(gameId: UUID().uuidString, charData: TestCharctor().charData, playerName: TestCharctor().charName, playerHitpoint: TestCharctor().hitpoint, playerHunger: TestCharctor().hunger, playerHealth: TestCharctor().health)
     
     // System Flag
     
@@ -69,21 +75,8 @@ struct ContentView: View {
                     }
                     VStack{
                         HStack{
-//                            Rectangle().opacity(0).frame(width: 270, height: 150).overlay {
-//                                HStack{
-//                                    VStack(alignment: .leading){
-//                                        EnemyName(name: $elementVM.enemyStatusModel.name)
-//                                        HitPoint(hitPoint: $elementVM.statusModel.hitPoint, nowHitPoint: $elementVM.enemyStatusModel.nowHitPoint)
-//                                        Hunger(hungerPoint: $elementVM.enemyStatusModel.hunger, nowHungerPoint: $elementVM.statusModel.hunger)
-//                                        Health(health: $elementVM.enemyStatusModel.Health)
-//                                    }.padding()
-//                                    Spacer()
-//                                }
-//                            }.background(Material.ultraThinMaterial.opacity(0.8)).clipShape(.rect(
-//                                cornerRadii: .init(topLeading: 10, bottomLeading: 10, bottomTrailing: 10, topTrailing: 10)
-//                            ))
-//                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM).disabled(sysArgVM.sysArgModel.msgSafeFlag)
-                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM, test: test).disabled(sysArgVM.sysArgModel.msgSafeFlag)
+                            // 簡易ステータス表示
+                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM).disabled(sysArgVM.sysArgModel.msgSafeFlag)
                             Spacer()
                         }.padding()
                         Spacer()
@@ -95,6 +88,23 @@ struct ContentView: View {
                         Spacer().frame(height: 100)
                     }
                 }
+            }.onAppear(){
+                // 起動時処理
+                if firstUp {
+                    // データが存在しない場合に挿入するテストデータ
+                    modelContext.insert(firstChar)
+                    try! modelContext.save()
+                    firstUp.toggle()
+                }
+                
+                if let charData = charactor.first?.charData {
+                    charRepo.setGameCharactorData(charData: charData)
+                    enemyVM.setStatusModel(model: charRepo.selectedCharData)
+                    print(enemyVM.statusModel)
+                } else {
+                    // 起動失敗処理
+                }
+                
             }
         }
     }
@@ -103,5 +113,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: [Item.self, PlayerCharactorItem.self], inMemory: true)
 }
