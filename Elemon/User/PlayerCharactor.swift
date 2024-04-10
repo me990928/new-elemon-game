@@ -19,7 +19,11 @@ protocol PlayerCharactor {
 }
 
 // プレイヤーデモ
-class PlayerTestCharactor: ObservableObject, PlayerCharactor {
+// 初回起動時にキャラクターを選択してcharDataに値をセットする
+@Model
+final class PlayerCharactorItem: PlayerCharactor {
+    
+    @Attribute(.unique) var gameId: String = UUID().uuidString
     
     var charData: any GameCharactor = TestCharctor()
     
@@ -37,4 +41,5 @@ class PlayerTestCharactor: ObservableObject, PlayerCharactor {
         self.playerHunger = charData.hunger
         self.playerHealth = charData.health
     }
+    
 }
