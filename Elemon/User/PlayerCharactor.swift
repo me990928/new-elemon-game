@@ -11,7 +11,7 @@ import SwiftData
 
 // 育成キャラデータ ここを書き換える
 protocol PlayerCharactor {
-    var charData: GameCharactor { get set }
+    var charData: String { get set }
     var playerName: String { set get }
     var playerHitpoint: Double { set get }
     var playerHunger: Double { set get }
@@ -25,7 +25,7 @@ final class PlayerCharactorItem: PlayerCharactor {
     
     @Attribute(.unique) var gameId: String = UUID().uuidString
     
-    var charData: any GameCharactor = TestCharctor()
+    var charData: String
     
     var playerName: String
     
@@ -35,11 +35,20 @@ final class PlayerCharactorItem: PlayerCharactor {
     
     var playerHealth: String
     
-    init() {
-        self.playerName = charData.charName
-        self.playerHitpoint = charData.hitpoint
-        self.playerHunger = charData.hunger
-        self.playerHealth = charData.health
+//    init() {
+//        self.playerName = charData.charName
+//        self.playerHitpoint = charData.hitpoint
+//        self.playerHunger = charData.hunger
+//        self.playerHealth = charData.health
+//    }
+    
+    init(gameId: String, charData: String, playerName: String, playerHitpoint: Double, playerHunger: Double, playerHealth: String) {
+        self.gameId = gameId
+        self.charData = charData
+        self.playerName = playerName
+        self.playerHitpoint = playerHitpoint
+        self.playerHunger = playerHunger
+        self.playerHealth = playerHealth
     }
     
 }
