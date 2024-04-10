@@ -52,3 +52,25 @@ final class PlayerCharactorItem: PlayerCharactor {
     }
     
 }
+
+class PlayerCharactorManager {
+    
+    func upPoint(now: Double, up: Double, max: Double)->Double{
+        // 上昇時に上限を超える時
+        if up + now > max {
+            return max
+        } else {
+            return now + up
+        }
+    }
+    
+    func downPoint(now: Double, dw: Double)->Double{
+        // 減少時に0を下回る場合
+        if now - dw < 0 {
+            return 0
+        } else {
+            return now - dw
+        }
+    }
+    
+}
