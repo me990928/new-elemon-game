@@ -74,3 +74,11 @@ class PlayerCharactorManager {
     }
     
 }
+
+class PlayerCharactorService: ObservableObject {
+    
+    let pcMan = PlayerCharactorManager()
+    
+    let charRepo = CharacterRepository()
+    
+}

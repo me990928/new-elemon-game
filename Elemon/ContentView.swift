@@ -26,7 +26,7 @@ struct ContentView: View {
     
     @StateObject var enemyVM = EnemyViewModel()
     @StateObject var sysArgVM = SystemArgmentsViewModel()
-    @StateObject var charRepo = CharacterRepository()
+    @StateObject var playerCharaSV = PlayerCharactorService()
     
 //    @StateObject var test = PlayerTestCharactor()
     
@@ -98,11 +98,12 @@ struct ContentView: View {
                 }
                 
                 if let charData = charactor.first?.charData {
-                    charRepo.setGameCharactorData(charData: charData)
-                    enemyVM.setStatusModel(model: charRepo.selectedCharData)
-                    print(enemyVM.statusModel)
+                    playerCharaSV.charRepo.setGameCharactorData(charData: charData)
+                    enemyVM.setStatusModel(model: playerCharaSV.charRepo.selectedCharData)
+//                    print(enemyVM.statusModel)
                 } else {
                     // 起動失敗処理
+                    print("run faild")
                 }
                 
             }
