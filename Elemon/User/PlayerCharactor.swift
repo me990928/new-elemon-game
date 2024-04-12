@@ -74,10 +74,8 @@ class PlayerCharactorManager {
     func downPoint(now: Double, dw: Double)->Double{
         // 減少時に0を下回る場合
         if now - dw < 0 {
-            print(0)
             return 0
         } else {
-            print(1)
             return now - dw
         }
     }
@@ -135,6 +133,8 @@ class PlayerCharactorService: ObservableObject {
     func hitPointdamage(completion: @escaping(Bool)->Void){
         // 体力減少メソッド
         // マネージャからプレイヤーを変更する
+        self.playerModel.playerHitpoint = pcMan.downPoint(now: playerModel.playerHitpoint, dw: 10.0)
+        completion(true)
     }
     
 }
