@@ -130,11 +130,15 @@ class PlayerCharactorService: ObservableObject {
     }
     
     // HP
-    func hitPointdamage(completion: @escaping(Bool)->Void){
+    func hitPointdamage(down: Double, completion: @escaping(Bool)->Void){
         // 体力減少メソッド
         // マネージャからプレイヤーを変更する
-        self.playerModel.playerHitpoint = pcMan.downPoint(now: playerModel.playerHitpoint, dw: 10.0)
+        self.playerModel.playerHitpoint = pcMan.downPoint(now: playerModel.playerHitpoint, dw: down)
         completion(true)
     }
-    
+    func hitPointheal(up: Double, max: Double, completion: @escaping(Bool)->Void){
+        // 体力回復メソッド
+        self.playerModel.playerHitpoint = pcMan.upPoint(now: playerModel.playerHitpoint, up: up, max: max)
+        completion(true)
+    }
 }
