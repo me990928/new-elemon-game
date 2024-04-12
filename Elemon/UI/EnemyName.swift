@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EnemyName: View {
     
-    @State var name: String
+    @Binding var name: String
     
     var body: some View {
         HStack{

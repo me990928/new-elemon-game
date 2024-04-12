@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Health: View {
     
-    @State var health: String
+    @Binding var health: String
     
     var body: some View {
         HStack{

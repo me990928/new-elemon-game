@@ -10,10 +10,10 @@ import SwiftData
 
 struct Hunger: View {
     
-    @State var hungerPoint: Double
+    @Binding var hungerPoint: Double
     
 //    @Query private var charactor: [PlayerCharactorItem]
-    @State var nowHungerPoint: Double
+    @Binding var nowHungerPoint: Double
     
 //    var body: some View {
 //        HStack{

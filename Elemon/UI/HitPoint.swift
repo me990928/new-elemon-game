@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct HitPoint: View {
-    @State var hitPoint: Double
-    @State var nowHitPoint: Double
+    @Binding var hitPoint: Double
+    @Binding var nowHitPoint: Double
     
     var body: some View {
         HStack{
