@@ -76,7 +76,7 @@ struct ContentView: View {
                     VStack{
                         HStack{
                             // 簡易ステータス表示
-                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM).disabled(sysArgVM.sysArgModel.msgSafeFlag)
+                            EasyStatus(enemyVM: enemyVM, sysArgVM: sysArgVM, playerCharaSV: playerCharaSV).disabled(sysArgVM.sysArgModel.msgSafeFlag)
                             Spacer()
                         }.padding()
                         Spacer()
@@ -97,10 +97,21 @@ struct ContentView: View {
                     firstUp.toggle()
                 }
                 
+                // 初期化処理
+                // 基礎データの取得
                 if let charData = charactor.first?.charData {
                     playerCharaSV.charRepo.setGameCharactorData(charData: charData)
                     enemyVM.setStatusModel(model: playerCharaSV.charRepo.selectedCharData)
 //                    print(enemyVM.statusModel)
+                    
+                    playerCharaSV.setPlayerData(players: charactor) { Bool in
+                        print("プレイヤー情報セット: \(Bool)")
+                        playerCharaSV.runSetPlayerpointsModel(enemyVM: enemyVM) { Bool in
+                            print("ダメージ情報セット: \(Bool)")
+                        }
+                    }
+                    
+                    
                 } else {
                     // 起動失敗処理
                     print("run faild")
